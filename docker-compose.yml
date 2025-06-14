@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    ports:
+      - 8000:80
+    volumes:
+      - .:/var/www/html
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: inventaris
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+    ports:
+      - 3306:3306
